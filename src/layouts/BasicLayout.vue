@@ -9,7 +9,7 @@
       </a-layout-content>
       <a-layout-footer class="footer">
         <a href="https://github.com/sonichen/oj-frontend" target="_blank">
-          On line Judge System
+          Black OJ System
         </a>
       </a-layout-footer>
     </a-layout>

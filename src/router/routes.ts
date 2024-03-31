@@ -5,20 +5,22 @@ import NoAuthView from "@/views/NoAuthView.vue";
 import UserLoginView from "@/views/user/UserLoginView.vue";
 import UserRegisterView from "@/views/user/UserRegisterView.vue";
 import UserLayout from "@/layouts/UserLayout.vue";
+import ACCESS_ENUM from "@/access/accessEnum";
+
 export const routes: Array<RouteRecordRaw> = [
   {
     path: "/user",
-    name: "用户",
+    name: "User",
     component: UserLayout,
     children: [
       {
         path: "/user/login",
-        name: "用户登录",
+        name: "User Login",
         component: UserLoginView,
       },
       {
         path: "/user/register",
-        name: "用户注册",
+        name: "User Register",
         component: UserRegisterView,
       },
     ],
@@ -27,38 +29,24 @@ export const routes: Array<RouteRecordRaw> = [
     },
   },
   {
-    path: "/",
-    name: "浏览题目",
+    path: "/questions",
+    name: "Questions",
     component: HomeView,
   },
   {
-    path: "/hide",
-    name: "隐藏页面",
-    component: HomeView,
+    path: "/admin",
+    name: "Admin",
+    component: AdminView,
     meta: {
-      hideInMenu: true,
+      access: ACCESS_ENUM.ADMIN,
     },
   },
   {
     path: "/noAuth",
-    name: "无权限",
+    name: "No Auth",
     component: NoAuthView,
-  },
-  {
-    path: "/admin",
-    name: "管理员可见",
-    component: AdminView,
     meta: {
-      access: "canAdmin",
+      hideInMenu: true,
     },
-  },
-  {
-    path: "/about",
-    name: "关于我的",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
   },
 ];

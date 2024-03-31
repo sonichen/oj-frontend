@@ -9,23 +9,21 @@
       </a-layout-content>
       <a-layout-footer class="footer">
         <a href="https://github.com/sonichen/oj-frontend" target="_blank">
-          Black OJ System
+          Black Online Judge System
         </a>
       </a-layout-footer>
     </a-layout>
   </div>
 </template>
-<script lang="ts">
-import GlobalHeader from "@/components/GlobalHeader.vue";
+<script>
+import GlobalHeader from "@/components/GlobalHeader";
+
 export default {
   name: "BasicLayout",
   components: { GlobalHeader },
 };
 </script>
 <style scoped>
-#basicLayout {
-}
-
 #basicLayout .header {
   margin-bottom: 16px;
   box-shadow: #eee 1px 1px 5px;

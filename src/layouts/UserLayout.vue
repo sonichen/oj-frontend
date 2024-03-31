@@ -4,15 +4,15 @@
       <a-layout-header class="header">
         <a-space>
           <img src="../assets/oj-logo.svg" class="logo" />
-          <div>Black OJ System</div>
+          <div style="color: #374550; font-weight: bold">Black OJ</div>
         </a-space>
       </a-layout-header>
       <a-layout-content class="content">
         <router-view />
       </a-layout-content>
       <a-layout-footer class="footer">
-        <a href="https://github.com/sonichen/oj-frontend" target="_blank"
-          >Black OJ System
+        <a href="https://github.com/sonichen/oj-frontend" target="_blank">
+          Black Online Judge System
         </a>
       </a-layout-footer>
     </a-layout>
@@ -20,11 +20,12 @@
 </template>
 <script lang="ts">
 export default {
-  name: "UserLayOut",
+  name: "UserLayout",
 };
 </script>
 <style scoped>
 #userLayout {
+  padding: 150px;
   text-align: center;
   background: url("https://gw.alipayobjects.com/zos/rmsportal/FfdJeJRQWjEeGTpqgBKj.png")
     0% 0% / 100% 100%;

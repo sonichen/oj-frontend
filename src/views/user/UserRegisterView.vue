@@ -1,19 +1,53 @@
 <template>
   <div id="userLoginView">
-    <h2 style="margin-bottom: 16px">User Register</h2>
+    <h2 style="margin-bottom: 16px; color: #374550">User Regsiter</h2>
     <a-form
       style="max-width: 480px; margin: 0 auto"
       label-align="left"
       auto-label-width
+      :model="form"
+      @submit="handleSubmit"
     >
       <a-form-item field="userAccount" label="Account">
-        <a-input placeholder="Please enter your password" />
+        <a-input
+          v-model="form.userAccount"
+          placeholder="Please input account"
+        />
       </a-form-item>
-      <a-form-item field="userPassword" tooltip="At least 8" label="Password">
-        <a-input-password placeholder="Please enter your password" />
+      <a-form-item
+        field="userPassword"
+        tooltip="At least 8 characters"
+        label="Password"
+      >
+        <a-input-password
+          v-model="form.userPassword"
+          placeholder="Please input password"
+        />
+      </a-form-item>
+      <a-form-item
+        field="checkPassword"
+        tooltip="At least 8 characters"
+        label="Password"
+      >
+        <a-input-password
+          v-model="form.checkPassword"
+          placeholder="Please input password again"
+        />
       </a-form-item>
       <a-form-item>
-        <a-button type="primary" html-type="submit" style="width: 120px">
+        Already have account, sign in &nbsp; <a href="/user/login">here</a>.
+      </a-form-item>
+      <a-form-item>
+        <a-button
+          type="primary"
+          html-type="submit"
+          style="
+            width: 120px;
+            margin: 0 auto;
+            display: block;
+            background-color: #374550;
+          "
+        >
           Register
         </a-button>
       </a-form-item>
@@ -23,5 +57,40 @@
 <script lang="ts">
 export default {
   name: "UserRegisterView",
+};
+</script>
+
+<script setup lang="ts">
+import { reactive } from "vue";
+import { UserControllerService, UserRegisterRequest } from "../../../generated";
+import message from "@arco-design/web-vue/es/message";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+
+const form = reactive({
+  userAccount: "",
+  userPassword: "",
+  checkPassword: "",
+} as UserRegisterRequest);
+
+const router = useRouter();
+const store = useStore();
+
+/**
+ * Submit the user form
+ * @param data
+ */
+const handleSubmit = async () => {
+  const res = await UserControllerService.userRegisterUsingPost(form);
+  // success
+  if (res.code === 0) {
+    await store.dispatch("user/getLoginUser");
+    router.push({
+      path: "/",
+      replace: true,
+    });
+  } else {
+    message.error("Fail: " + res.message);
+  }
 };
 </script>

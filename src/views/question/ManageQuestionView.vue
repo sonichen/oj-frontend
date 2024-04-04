@@ -72,51 +72,51 @@ onMounted(() => {
 
 const columns = [
   {
-    title: "id",
+    title: "Question ID",
     dataIndex: "id",
   },
   {
-    title: "标题",
+    title: "Title",
     dataIndex: "title",
   },
   {
-    title: "内容",
+    title: "Content",
     dataIndex: "content",
   },
   {
-    title: "标签",
+    title: "Tag",
     dataIndex: "tags",
   },
   {
-    title: "答案",
+    title: "Answer",
     dataIndex: "answer",
   },
   {
-    title: "提交数",
+    title: "Submit Number",
     dataIndex: "submitNum",
   },
   {
-    title: "通过数",
+    title: "Accepted Number",
     dataIndex: "acceptedNum",
   },
   {
-    title: "判题配置",
+    title: "Judge Config",
     dataIndex: "judgeConfig",
   },
   {
-    title: "判题用例",
+    title: "Judege Case",
     dataIndex: "judgeCase",
   },
   {
-    title: "用户id",
+    title: "User ID",
     dataIndex: "userId",
   },
   {
-    title: "创建时间",
+    title: "Create Time",
     dataIndex: "createTime",
   },
   {
-    title: "操作",
+    title: "Operation",
     slotName: "optional",
   },
 ];

@@ -34,6 +34,11 @@ const props = withDefaults(defineProps<Props>(), {
 });
 </script>
 
+<script lang="ts">
+export default {
+  name: "MdEditor",
+};
+</script>
 <style>
 .bytemd-toolbar-icon.bytemd-tippy.bytemd-tippy-right:last-child {
   display: none;

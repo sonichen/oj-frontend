@@ -5,7 +5,11 @@
     style="min-height: 400px; height: 60vh"
   />
 </template>
-
+<script lang="ts">
+export default {
+  name: "CodeEditor",
+};
+</script>
 <script setup lang="ts">
 import * as monaco from "monaco-editor";
 import { onMounted, ref, toRaw, withDefaults, defineProps, watch } from "vue";

@@ -6,6 +6,8 @@ import UserLoginView from "@/views/user/UserLoginView.vue";
 import UserRegisterView from "@/views/user/UserRegisterView.vue";
 import UserLayout from "@/layouts/UserLayout.vue";
 import ACCESS_ENUM from "@/access/accessEnum";
+import AddQuestionView from "@/views/question/AddQuestionView.vue";
+import ExampleVue from "@/views/Example.vue";
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -31,7 +33,7 @@ export const routes: Array<RouteRecordRaw> = [
   {
     path: "/questions",
     name: "Questions",
-    component: HomeView,
+    component: AddQuestionView,
   },
   {
     path: "/admin",

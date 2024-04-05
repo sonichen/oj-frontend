@@ -9,6 +9,7 @@ import ACCESS_ENUM from "@/access/accessEnum";
 import AddQuestionView from "@/views/question/AddQuestionView.vue";
 import ExampleVue from "@/views/Example.vue";
 import ManageQuestionView from "@/views/question/ManageQuestionView.vue";
+import QuestionsView from "@/views/question/QuestionsView.vue";
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -31,27 +32,27 @@ export const routes: Array<RouteRecordRaw> = [
       hideInMenu: true,
     },
   },
-  {
-    path: "/questions",
-    name: "Questions",
-    component: AddQuestionView,
-  },
-  {
-    path: "/admin",
-    name: "Admin",
-    component: AdminView,
-    meta: {
-      access: ACCESS_ENUM.ADMIN,
-    },
-  },
-  {
-    path: "/noAuth",
-    name: "No Auth",
-    component: NoAuthView,
-    meta: {
-      hideInMenu: true,
-    },
-  },
+  // {
+  //   path: "/questions",
+  //   name: "Questions",
+  //   component: AddQuestionView,
+  // },
+  // {
+  //   path: "/admin",
+  //   name: "Admin",
+  //   component: AdminView,
+  //   meta: {
+  //     access: ACCESS_ENUM.ADMIN,
+  //   },
+  // },
+  // {
+  //   path: "/noAuth",
+  //   name: "No Auth",
+  //   component: NoAuthView,
+  //   meta: {
+  //     hideInMenu: true,
+  //   },
+  // },
   {
     path: "/add/question",
     name: "Create Questions",
@@ -66,5 +67,15 @@ export const routes: Array<RouteRecordRaw> = [
     path: "/manage/question/",
     name: "Manage Questions",
     component: ManageQuestionView,
+  },
+  {
+    path: "/",
+    name: "Home",
+    component: QuestionsView,
+  },
+  {
+    path: "/questions",
+    name: "Questions",
+    component: QuestionsView,
   },
 ];

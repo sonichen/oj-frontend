@@ -8,6 +8,7 @@ import UserLayout from "@/layouts/UserLayout.vue";
 import ACCESS_ENUM from "@/access/accessEnum";
 import AddQuestionView from "@/views/question/AddQuestionView.vue";
 import ExampleVue from "@/views/Example.vue";
+import ManageQuestionView from "@/views/question/ManageQuestionView.vue";
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -50,5 +51,20 @@ export const routes: Array<RouteRecordRaw> = [
     meta: {
       hideInMenu: true,
     },
+  },
+  {
+    path: "/add/question",
+    name: "Create Questions",
+    component: AddQuestionView,
+  },
+  {
+    path: "/update/question",
+    name: "Update Questions",
+    component: AddQuestionView,
+  },
+  {
+    path: "/manage/question/",
+    name: "Manage Questions",
+    component: ManageQuestionView,
   },
 ];

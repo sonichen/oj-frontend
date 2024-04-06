@@ -3,7 +3,6 @@
     <a-layout style="min-height: 100vh">
       <a-layout-header class="header">
         <a-space>
-          <img src="../assets/oj-logo.svg" class="logo" />
           <div style="color: #374550; font-weight: bold">Black OJ</div>
         </a-space>
       </a-layout-header>
@@ -29,11 +28,6 @@ export default {
   text-align: center;
   background: url("https://gw.alipayobjects.com/zos/rmsportal/FfdJeJRQWjEeGTpqgBKj.png")
     0% 0% / 100% 100%;
-}
-
-#userLayout .logo {
-  width: 64px;
-  height: 64px;
 }
 
 #userLayout .header {

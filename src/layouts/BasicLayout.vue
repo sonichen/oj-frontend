@@ -8,7 +8,11 @@
         <router-view />
       </a-layout-content>
       <a-layout-footer class="footer">
-        <a href="https://github.com/sonichen/oj-frontend" target="_blank">
+        <a
+          href="https://github.com/sonichen/oj-frontend"
+          target="_blank"
+          style="color: aliceblue"
+        >
           Black Online Judge System
         </a>
       </a-layout-footer>
@@ -25,6 +29,7 @@ export default {
 </script>
 <style scoped>
 #basicLayout .header {
+  background-color: #34495e !important;
   margin-bottom: 16px;
   box-shadow: #eee 1px 1px 5px;
 }
@@ -36,7 +41,7 @@ export default {
 }
 
 #basicLayout .footer {
-  background: #efefef;
+  background: #34495e;
   padding: 16px;
   position: sticky;
   bottom: 0;

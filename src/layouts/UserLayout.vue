@@ -11,6 +11,7 @@
         <router-view />
       </a-layout-content>
       <a-layout-footer class="footer">
+        style="color: aliceblue"
         <a href="https://github.com/sonichen/oj-frontend" target="_blank">
           Black Online Judge System
         </a>
@@ -38,6 +39,7 @@ export default {
 
 #userLayout .header {
   margin-top: 16px;
+  background-color: #34495e;
 }
 
 #userLayout .content {

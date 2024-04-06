@@ -21,54 +21,18 @@ export const routes: Array<RouteRecordRaw> = [
     children: [
       {
         path: "/user/login",
-        name: "User Login",
+        name: "Sign in",
         component: UserLoginView,
       },
       {
         path: "/user/register",
-        name: "User Register",
+        name: "Register",
         component: UserRegisterView,
       },
     ],
     meta: {
       hideInMenu: true,
     },
-  },
-  // {
-  //   path: "/questions",
-  //   name: "Questions",
-  //   component: AddQuestionView,
-  // },
-  // {
-  //   path: "/admin",
-  //   name: "Admin",
-  //   component: AdminView,
-  //   meta: {
-  //     access: ACCESS_ENUM.ADMIN,
-  //   },
-  // },
-  // {
-  //   path: "/noAuth",
-  //   name: "No Auth",
-  //   component: NoAuthView,
-  //   meta: {
-  //     hideInMenu: true,
-  //   },
-  // },
-  {
-    path: "/add/question",
-    name: "Create Questions",
-    component: AddQuestionView,
-  },
-  {
-    path: "/update/question",
-    name: "Update Questions",
-    component: AddQuestionView,
-  },
-  {
-    path: "/manage/question/",
-    name: "Manage Questions",
-    component: ManageQuestionView,
   },
   {
     path: "/",
@@ -77,18 +41,57 @@ export const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/questions",
-    name: "Questions",
+    name: "Explore",
     component: QuestionsView,
   },
   {
+    path: "/add/question",
+    name: "Create",
+    component: AddQuestionView,
+    meta: {
+      access: ACCESS_ENUM.USER,
+    },
+  },
+  {
+    path: "/update/question",
+    name: "Update",
+    component: AddQuestionView,
+    meta: {
+      access: ACCESS_ENUM.USER,
+      hideInMenu: true,
+    },
+  },
+  {
     path: "/question_submit",
-    name: "View History",
+    name: "History",
     component: QuestionSubmitView,
   },
   {
     path: "/view/question/:id",
-    name: "Online Coding",
+    name: "Coding",
     component: ViewQuestionView,
     props: true,
+    meta: {
+      access: ACCESS_ENUM.USER,
+      hideInMenu: true,
+    },
+  },
+
+  {
+    path: "/manage/question/",
+    name: "Center",
+    component: ManageQuestionView,
+    meta: {
+      access: ACCESS_ENUM.ADMIN,
+    },
+  },
+
+  {
+    path: "/noAuth",
+    name: "No Auth",
+    component: NoAuthView,
+    meta: {
+      hideInMenu: true,
+    },
   },
 ];

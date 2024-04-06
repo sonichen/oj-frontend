@@ -28,5 +28,9 @@ const props = withDefaults(defineProps<Props>(), {
   value: () => "",
 });
 </script>
-
+<script lang="ts">
+export default {
+  name: "MdViewer",
+};
+</script>
 <style></style>

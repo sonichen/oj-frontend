@@ -10,6 +10,8 @@ import AddQuestionView from "@/views/question/AddQuestionView.vue";
 import ExampleVue from "@/views/Example.vue";
 import ManageQuestionView from "@/views/question/ManageQuestionView.vue";
 import QuestionsView from "@/views/question/QuestionsView.vue";
+import QuestionSubmitView from "@/views/question/QuestionSubmitView.vue";
+import ViewQuestionView from "@/views/question/ViewQuestionView.vue";
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -77,5 +79,16 @@ export const routes: Array<RouteRecordRaw> = [
     path: "/questions",
     name: "Questions",
     component: QuestionsView,
+  },
+  {
+    path: "/question_submit",
+    name: "View History",
+    component: QuestionSubmitView,
+  },
+  {
+    path: "/view/question/:id",
+    name: "Online Coding",
+    component: ViewQuestionView,
+    props: true,
   },
 ];

@@ -4,7 +4,7 @@
       <a-form-item field="title" label="Title" style="min-width: 240px">
         <a-input
           v-model="searchParams.title"
-          placeholder="Please input title"
+          placeholder="Please input title..."
         />
       </a-form-item>
       <a-form-item field="tags" label="Tag" style="min-width: 240px">

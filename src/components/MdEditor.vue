@@ -10,8 +10,7 @@
 <script setup lang="ts">
 import gfm from "@bytemd/plugin-gfm";
 import highlight from "@bytemd/plugin-highlight";
-import { Editor, Viewer } from "@bytemd/vue-next";
-import { ref, withDefaults, defineProps } from "vue";
+import { withDefaults, defineProps } from "vue";
 
 interface Props {
   value: string;

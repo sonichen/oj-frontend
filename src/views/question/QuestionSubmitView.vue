@@ -1,14 +1,25 @@
 <template>
   <div id="questionSubmitView">
     <a-form :model="searchParams" layout="inline">
-      <a-form-item field="questionId" label="题号" style="min-width: 240px">
-        <a-input v-model="searchParams.questionId" placeholder="请输入" />
+      <a-form-item
+        field="questionId"
+        label="Question ID"
+        style="min-width: 240px"
+      >
+        <a-input
+          v-model="searchParams.questionId"
+          placeholder="Please input "
+        />
       </a-form-item>
-      <a-form-item field="language" label="编程语言" style="min-width: 240px">
+      <a-form-item
+        field="language"
+        label="Programming Language"
+        style="min-width: 240px"
+      >
         <a-select
           v-model="searchParams.language"
           :style="{ width: '320px' }"
-          placeholder="选择编程语言"
+          placeholder="Choose Language"
         >
           <a-option>java</a-option>
           <a-option>cpp</a-option>
@@ -17,7 +28,7 @@
         </a-select>
       </a-form-item>
       <a-form-item>
-        <a-button type="primary" @click="doSubmit">搜索</a-button>
+        <a-button type="primary" @click="doSubmit">Search</a-button>
       </a-form-item>
     </a-form>
     <a-divider />
@@ -77,51 +88,45 @@ const loadData = async () => {
     dataList.value = res.data.records;
     total.value = res.data.total;
   } else {
-    message.error("加载失败，" + res.message);
+    message.error("Fail to load" + res.message);
   }
 };
 
-/**
- * 监听 searchParams 变量，改变时触发页面的重新加载
- */
 watchEffect(() => {
   loadData();
 });
 
-/**
- * 页面加载时，请求数据
- */
 onMounted(() => {
   loadData();
 });
 
 const columns = [
   {
-    title: "提交号",
+    title: "Submit ID",
     dataIndex: "id",
   },
   {
-    title: "编程语言",
+    title: "Programming Language",
     dataIndex: "language",
   },
   {
-    title: "判题信息",
+    title: "Judge Information",
     slotName: "judgeInfo",
   },
   {
-    title: "判题状态",
+    title: "Status",
     dataIndex: "status",
   },
   {
-    title: "题目 id",
+    title: "Question ID",
     dataIndex: "questionId",
   },
   {
-    title: "提交者 id",
+    title: "User ID",
     dataIndex: "userId",
   },
   {
-    title: "创建时间",
+    title: "Create Time",
     slotName: "createTime",
   },
 ];
@@ -135,21 +140,13 @@ const onPageChange = (page: number) => {
 
 const router = useRouter();
 
-/**
- * 跳转到做题页面
- * @param question
- */
 const toQuestionPage = (question: Question) => {
   router.push({
     path: `/view/question/${question.id}`,
   });
 };
 
-/**
- * 确认搜索，重新加载数据
- */
 const doSubmit = () => {
-  // 这里需要重置搜索页号
   searchParams.value = {
     ...searchParams.value,
     current: 1,

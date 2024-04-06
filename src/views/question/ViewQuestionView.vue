@@ -110,9 +110,6 @@ const form = ref<QuestionSubmitAddRequest>({
   code: "",
 });
 
-/**
- * 提交代码
- */
 const doSubmit = async () => {
   if (!question.value?.id) {
     return;
@@ -129,9 +126,6 @@ const doSubmit = async () => {
   }
 };
 
-/**
- * 页面加载时，请求数据
- */
 onMounted(() => {
   loadData();
 });

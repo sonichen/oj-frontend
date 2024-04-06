@@ -4,6 +4,7 @@
       <a-layout-header class="header">
         <GlobalHeader />
       </a-layout-header>
+      <!-- <a-layout-sider></a-layout-sider> -->
       <a-layout-content class="content">
         <router-view />
       </a-layout-content>

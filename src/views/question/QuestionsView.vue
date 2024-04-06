@@ -61,13 +61,11 @@
 <script setup lang="ts">
 import { onMounted, ref, watchEffect } from "vue";
 import {
-  Page_Question_,
   Question,
   QuestionControllerService,
   QuestionQueryRequest,
 } from "../../../generated";
 import message from "@arco-design/web-vue/es/message";
-import * as querystring from "querystring";
 import { useRouter } from "vue-router";
 import moment from "moment";
 
@@ -94,21 +92,13 @@ const loadData = async () => {
   }
 };
 
-/**
- * 监听 searchParams 变量，改变时触发页面的重新加载
- */
 watchEffect(() => {
   loadData();
 });
 
-/**
- * 页面加载时，请求数据
- */
 onMounted(() => {
   loadData();
 });
-
-// {id: "1", title: "A+ D", content: "新的题目内容", tags: "["二叉树"]", answer: "新的答案", submitNum: 0,…}
 
 const columns = [
   {
@@ -145,21 +135,13 @@ const onPageChange = (page: number) => {
 
 const router = useRouter();
 
-/**
- * 跳转到做题页面
- * @param question
- */
 const toQuestionPage = (question: Question) => {
   router.push({
     path: `/view/question/${question.id}`,
   });
 };
 
-/**
- * 确认搜索，重新加载数据
- */
 const doSubmit = () => {
-  // 这里需要重置搜索页号
   searchParams.value = {
     ...searchParams.value,
     current: 1,

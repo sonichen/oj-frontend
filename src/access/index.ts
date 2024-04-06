@@ -3,7 +3,7 @@ import store from "@/store";
 import ACCESS_ENUM from "@/access/accessEnum";
 import checkAccess from "@/access/checkAccess";
 
-router.beforeEach(async (to, from, next) => {
+router.beforeEach(async (to, _from, next) => {
   console.log("User Infor:", store.state.user.loginUser);
   let loginUser = store.state.user.loginUser;
   if (!loginUser || !loginUser.userRole) {

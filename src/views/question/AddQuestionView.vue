@@ -108,7 +108,6 @@ import MdEditor from "../../components/MdEditor.vue";
 import { QuestionControllerService } from "../../../generated";
 import message from "@arco-design/web-vue/es/message";
 import { useRoute } from "vue-router";
-import { Question } from "../../../generated/models/Question";
 
 const route = useRoute();
 // update if url contains update
@@ -168,7 +167,7 @@ const loadData = async () => {
       form.value.tags = JSON.parse(form.value.tags as any);
     }
   } else {
-    message.error("加载失败，" + res.message);
+    message.error("Fail to Load" + res.message);
   }
 };
 

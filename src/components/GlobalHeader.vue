@@ -5,24 +5,32 @@
         mode="horizontal"
         :selected-keys="selectedKeys"
         @menu-item-click="doMenuClick"
+        style="background-color: #34495e"
       >
         <a-menu-item
           key="0"
           :style="{ padding: 0, marginRight: '38px' }"
           disabled
+          style="border-color: #34495e"
         >
-          <div class="title-bar">
-            <img class="logo" src="../assets/oj-logo.svg" />
+          <div
+            class="title-bar"
+            style="color: aliceblue; background-color: #34495e"
+          >
             <div class="title">Black OJ</div>
           </div>
         </a-menu-item>
-        <a-menu-item v-for="item in visibleRoutes" :key="item.path">
+        <a-menu-item
+          v-for="item in visibleRoutes"
+          :key="item.path"
+          style="color: aliceblue; background-color: #34495e"
+        >
           {{ item.name }}
         </a-menu-item>
       </a-menu>
     </a-col>
     <a-col flex="100px">
-      <div>
+      <div style="color: aliceblue">
         {{ store.state.user?.loginUser?.userName ?? "Login" }}
       </div>
     </a-col>
@@ -91,7 +99,7 @@ const doMenuClick = (key: string) => {
 }
 
 .title {
-  color: #444;
+  /* color: #444; */
   margin-left: 16px;
 }
 

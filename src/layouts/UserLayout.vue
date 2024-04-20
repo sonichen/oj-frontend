@@ -4,7 +4,9 @@
       <a-layout-header class="header">
         <a-space>
           <img src="../assets/oj-logo.svg" class="logo" />
-          <div style="color: #374550; font-weight: bold">Black OJ</div>
+          <div style="color: #374550; font-weight: bold">
+            Online Judge System
+          </div>
         </a-space>
       </a-layout-header>
       <a-layout-content class="content">
@@ -13,7 +15,7 @@
       <a-layout-footer class="footer">
         style="color: aliceblue"
         <a href="https://github.com/sonichen/oj-frontend" target="_blank">
-          Black Online Judge System
+          Online Judge System
         </a>
       </a-layout-footer>
     </a-layout>

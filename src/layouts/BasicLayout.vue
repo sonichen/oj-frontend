@@ -13,7 +13,7 @@
           target="_blank"
           style="color: aliceblue"
         >
-          Black Online Judge System
+          Online Judge System
         </a>
       </a-layout-footer>
     </a-layout>

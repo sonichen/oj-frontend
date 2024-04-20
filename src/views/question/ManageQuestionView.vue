@@ -1,24 +1,34 @@
 <template>
   <div id="manageQuestionView">
-    <a-table
-      :ref="tableRef"
-      :columns="columns"
-      :data="dataList"
-      :pagination="{
-        showTotal: true,
-        pageSize: searchParams.pageSize,
-        current: searchParams.current,
-        total,
-      }"
-      @page-change="onPageChange"
-    >
-      <template #optional="{ record }">
-        <a-space>
-          <a-button type="primary" @click="doUpdate(record)"> Update</a-button>
-          <a-button status="danger" @click="doDelete(record)">Delete</a-button>
-        </a-space>
-      </template>
-    </a-table>
+    <div :style="{ display: 'flex' }">
+      <a-card :style="{ width: '100%' }">
+        <a-typography-title :heading="5">Questions List</a-typography-title>
+        <a-divider />
+        <a-table
+          :ref="tableRef"
+          :columns="columns"
+          :data="dataList"
+          :pagination="{
+            showTotal: true,
+            pageSize: searchParams.pageSize,
+            current: searchParams.current,
+            total,
+          }"
+          @page-change="onPageChange"
+        >
+          <template #optional="{ record }">
+            <a-space>
+              <a-button type="primary" @click="doUpdate(record)">
+                Update</a-button
+              >
+              <a-button status="danger" @click="doDelete(record)"
+                >Delete</a-button
+              >
+            </a-space>
+          </template>
+        </a-table>
+      </a-card>
+    </div>
   </div>
 </template>
 
@@ -154,5 +164,7 @@ const doUpdate = (question: Question) => {
 
 <style scoped>
 #manageQuestionView {
+  max-width: 1280px;
+  margin: 0 auto;
 }
 </style>

@@ -6,15 +6,25 @@ The frontend part of OJ project. In the system frontend, admin can create and ma
 
 ## Screenshots
 
-![image-20240406133927834](assets\image-20240406133927834.png)
+![register](assets\register.png)
 
-![image-20240406133734819](assets\image-20240406133734819.png)
+![login](assets\login.png)
 
-![image-20240406133959801](assets\image-20240406133959801.png)
+![home_user](assets\home_user.png)
 
-![image-20240406133801875](assets\image-20240406133801875.png)
+![homepage](assets\homepage.png)
 
-![image-20240406133851296](assets\image-20240406133851296.png)
+![history](assets\history.png)
+
+![create](assets\create.png)
+
+![manage](assets\manage.png)
+
+
+
+![coding](assets\coding.png)
+
+
 
 ## Features
 

@@ -6,23 +6,21 @@ The frontend part of OJ project. In the system frontend, admin can create and ma
 
 ## Screenshots
 
-![register](assets\register.png)
+![register](https://github.com/sonichen/oj-frontend/blob/main/assets/register.png)
 
-![login](assets\login.png)
+![login](https://github.com/sonichen/oj-frontend/blob/main/assets/login.png)
 
-![home_user](assets\home_user.png)
+![home_user](https://github.com/sonichen/oj-frontend/blob/main/assets/home_user.png)
 
-![homepage](assets\homepage.png)
+![homepage](https://github.com/sonichen/oj-frontend/blob/main/assets/homepage.png)
 
-![history](assets\history.png)
+![history](https://github.com/sonichen/oj-frontend/blob/main/assets/history.png)
 
-![create](assets\create.png)
+![create](https://github.com/sonichen/oj-frontend/blob/main/assets/create.png)
 
-![manage](assets\manage.png)
+![manage](https://github.com/sonichen/oj-frontend/blob/main/assets/manage.png)
 
-
-
-![coding](assets\coding.png)
+![coding](https://github.com/sonichen/oj-frontend/blob/main/assets/coding.png)
 
 ## Features
 

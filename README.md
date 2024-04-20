@@ -24,8 +24,6 @@ The frontend part of OJ project. In the system frontend, admin can create and ma
 
 ![coding](assets\coding.png)
 
-
-
 ## Features
 
 User Management:

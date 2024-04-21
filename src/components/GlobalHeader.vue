@@ -17,7 +17,7 @@
             class="title-bar"
             style="color: aliceblue; background-color: #34495e"
           >
-            <div class="title">Black OJ</div>
+            <div class="title">Online Judge System</div>
           </div>
         </a-menu-item>
         <a-menu-item
@@ -100,7 +100,8 @@ const doMenuClick = (key: string) => {
 
 .title {
   /* color: #444; */
-  margin-left: 16px;
+  /* margin-left: 200px; */
+  text-align: center;
 }
 
 .logo {

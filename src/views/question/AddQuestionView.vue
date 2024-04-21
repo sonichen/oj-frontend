@@ -1,104 +1,116 @@
 <template>
   <div id="addQuestionView">
-    <h2>Create Questions</h2>
-    <a-form :model="form" label-align="left">
-      <a-form-item field="title" label="Title">
-        <a-input v-model="form.title" placeholder="Please input title" />
-      </a-form-item>
-      <a-form-item field="tags" label="Tag">
-        <a-input-tag
-          v-model="form.tags"
-          placeholder="Please choose tag"
-          allow-clear
-        />
-      </a-form-item>
-      <a-form-item field="content" label="Question">
-        <MdEditor :value="form.content" :handle-change="onContentChange" />
-      </a-form-item>
-      <a-form-item field="answer" label="Answer">
-        <MdEditor :value="form.answer" :handle-change="onAnswerChange" />
-      </a-form-item>
-      <a-form-item
-        label="Judgment mechanism"
-        :content-flex="false"
-        :merge-props="false"
-      >
-        <a-space direction="vertical" style="min-width: 480px">
-          <a-form-item field="judgeConfig.timeLimit" label="Time Limit">
-            <a-input-number
-              v-model="form.judgeConfig.timeLimit"
-              placeholder="Please input time limit"
-              mode="button"
-              size="large"
+    <div :style="{ display: 'flex' }">
+      <a-card :style="{ width: '100%' }">
+        <a-typography-title :heading="5">Add Problem</a-typography-title>
+        <a-divider />
+        <a-button type="primary">Upload Problem</a-button>
+      </a-card>
+    </div>
+    <div :style="{ display: 'flex' }" style="margin-top: 50px">
+      <a-card :style="{ width: '100%' }">
+        <a-typography-title :heading="5">Add Problem</a-typography-title>
+        <a-divider />
+        <a-form :model="form" label-align="left">
+          <a-form-item field="title" label="Title">
+            <a-input v-model="form.title" placeholder="Please input title" />
+          </a-form-item>
+          <a-form-item field="tags" label="Tag">
+            <a-input-tag
+              v-model="form.tags"
+              placeholder="Please choose tag"
+              allow-clear
             />
           </a-form-item>
-          <a-form-item field="judgeConfig.memoryLimit" label="Memory Limit">
-            <a-input-number
-              v-model="form.judgeConfig.memoryLimit"
-              placeholder="Please input memory limit"
-              mode="button"
-              size="large"
-            />
+          <a-form-item field="content" label="Question">
+            <MdEditor :value="form.content" :handle-change="onContentChange" />
           </a-form-item>
-          <a-form-item field="judgeConfig.stackLimit" label="Stack Limit">
-            <a-input-number
-              v-model="form.judgeConfig.stackLimit"
-              placeholder="Please input stack limit"
-              mode="button"
-              size="large"
-            />
+          <a-form-item field="answer" label="Answer">
+            <MdEditor :value="form.answer" :handle-change="onAnswerChange" />
           </a-form-item>
-        </a-space>
-      </a-form-item>
-      <a-form-item
-        label="Test Case Config"
-        :content-flex="false"
-        :merge-props="false"
-      >
-        <a-form-item
-          v-for="(judgeCaseItem, index) of form.judgeCase"
-          :key="index"
-          no-style
-        >
-          <a-space direction="vertical" style="min-width: 640px">
+          <a-form-item
+            label="Judgment mechanism"
+            :content-flex="false"
+            :merge-props="false"
+          >
+            <a-space direction="vertical" style="min-width: 480px">
+              <a-form-item field="judgeConfig.timeLimit" label="Time Limit">
+                <a-input-number
+                  v-model="form.judgeConfig.timeLimit"
+                  placeholder="Please input time limit"
+                  mode="button"
+                  size="large"
+                />
+              </a-form-item>
+              <a-form-item field="judgeConfig.memoryLimit" label="Memory Limit">
+                <a-input-number
+                  v-model="form.judgeConfig.memoryLimit"
+                  placeholder="Please input memory limit"
+                  mode="button"
+                  size="large"
+                />
+              </a-form-item>
+              <a-form-item field="judgeConfig.stackLimit" label="Stack Limit">
+                <a-input-number
+                  v-model="form.judgeConfig.stackLimit"
+                  placeholder="Please input stack limit"
+                  mode="button"
+                  size="large"
+                />
+              </a-form-item>
+            </a-space>
+          </a-form-item>
+          <a-form-item
+            label="Test Case Config"
+            :content-flex="false"
+            :merge-props="false"
+          >
             <a-form-item
-              :field="`form.judgeCase[${index}].input`"
-              :label="`Input case-${index}`"
+              v-for="(judgeCaseItem, index) of form.judgeCase"
               :key="index"
+              no-style
             >
-              <a-input
-                v-model="judgeCaseItem.input"
-                placeholder="Please enter input case"
-              />
+              <a-space direction="vertical" style="min-width: 640px">
+                <a-form-item
+                  :field="`form.judgeCase[${index}].input`"
+                  :label="`Input case-${index}`"
+                  :key="index"
+                >
+                  <a-input
+                    v-model="judgeCaseItem.input"
+                    placeholder="Please enter input case"
+                  />
+                </a-form-item>
+                <a-form-item
+                  :field="`form.judgeCase[${index}].output`"
+                  :label="`Output case-${index}`"
+                  :key="index"
+                >
+                  <a-input
+                    v-model="judgeCaseItem.output"
+                    placeholder="Please enter output case"
+                  />
+                </a-form-item>
+                <a-button status="danger" @click="handleDelete(index)">
+                  Delete
+                </a-button>
+              </a-space>
             </a-form-item>
-            <a-form-item
-              :field="`form.judgeCase[${index}].output`"
-              :label="`Output case-${index}`"
-              :key="index"
-            >
-              <a-input
-                v-model="judgeCaseItem.output"
-                placeholder="Please enter output case"
-              />
-            </a-form-item>
-            <a-button status="danger" @click="handleDelete(index)">
-              Delete
+            <div style="margin-top: 32px">
+              <a-button @click="handleAdd" type="outline" status="success"
+                >Add new test case
+              </a-button>
+            </div>
+          </a-form-item>
+          <div style="margin-top: 16px" />
+          <a-form-item>
+            <a-button type="primary" style="min-width: 200px" @click="doSubmit"
+              >Submit
             </a-button>
-          </a-space>
-        </a-form-item>
-        <div style="margin-top: 32px">
-          <a-button @click="handleAdd" type="outline" status="success"
-            >Add new test case
-          </a-button>
-        </div>
-      </a-form-item>
-      <div style="margin-top: 16px" />
-      <a-form-item>
-        <a-button type="primary" style="min-width: 200px" @click="doSubmit"
-          >Submit
-        </a-button>
-      </a-form-item>
-    </a-form>
+          </a-form-item>
+        </a-form>
+      </a-card>
+    </div>
   </div>
 </template>
 
@@ -228,5 +240,7 @@ const onAnswerChange = (value: string) => {
 
 <style scoped>
 #addQuestionView {
+  max-width: 1280px;
+  margin: 0 auto;
 }
 </style>

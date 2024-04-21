@@ -4,16 +4,17 @@
       <a-layout-header class="header">
         <a-space>
           <img src="../assets/oj-logo.svg" class="logo" />
-          <div style="color: #374550; font-weight: bold">Black OJ</div>
+          <div style="color: #374550; font-weight: bold">
+            Online Judge System
+          </div>
         </a-space>
       </a-layout-header>
       <a-layout-content class="content">
         <router-view />
       </a-layout-content>
       <a-layout-footer class="footer">
-        style="color: aliceblue"
         <a href="https://github.com/sonichen/oj-frontend" target="_blank">
-          Black Online Judge System
+          Online Judge System
         </a>
       </a-layout-footer>
     </a-layout>
@@ -28,8 +29,6 @@ export default {
 #userLayout {
   padding: 150px;
   text-align: center;
-  background: url("https://gw.alipayobjects.com/zos/rmsportal/FfdJeJRQWjEeGTpqgBKj.png")
-    0% 0% / 100% 100%;
 }
 
 #userLayout .logo {
@@ -39,7 +38,6 @@ export default {
 
 #userLayout .header {
   margin-top: 16px;
-  background-color: #34495e;
 }
 
 #userLayout .content {

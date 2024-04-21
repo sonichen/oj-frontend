@@ -1,45 +1,66 @@
 <template>
   <div id="questionSubmitView">
-    <a-form :model="searchParams" layout="inline">
-      <a-form-item field="questionId" label="题号" style="min-width: 240px">
-        <a-input v-model="searchParams.questionId" placeholder="请输入" />
-      </a-form-item>
-      <a-form-item field="language" label="编程语言" style="min-width: 240px">
-        <a-select
-          v-model="searchParams.language"
-          :style="{ width: '320px' }"
-          placeholder="选择编程语言"
+    <div :style="{ display: 'flex' }">
+      <a-card :style="{ width: '100%' }">
+        <a-typography-title :heading="5">History Record</a-typography-title>
+        <a-divider />
+        <a-form :model="searchParams" layout="inline">
+          <a-form-item
+            field="questionId"
+            label="Quetsion ID"
+            style="min-width: 240px"
+          >
+            <a-input
+              v-model="searchParams.questionId"
+              placeholder="Please input"
+            />
+          </a-form-item>
+          <a-form-item
+            field="language"
+            label="Language"
+            style="min-width: 240px"
+          >
+            <a-select
+              v-model="searchParams.language"
+              :style="{ width: '320px' }"
+              placeholder="Choose Language"
+            >
+              <a-option>java</a-option>
+              <a-option>cpp</a-option>
+              <a-option>go</a-option>
+              <a-option>html</a-option>
+            </a-select>
+          </a-form-item>
+          <a-form-item>
+            <a-button type="primary" @click="doSubmit">
+              <template #icon>
+                <icon-search />
+              </template>
+            </a-button>
+          </a-form-item>
+        </a-form>
+        <a-divider />
+        <a-table
+          :ref="tableRef"
+          :columns="columns"
+          :data="dataList"
+          :pagination="{
+            showTotal: true,
+            pageSize: searchParams.pageSize,
+            current: searchParams.current,
+            total,
+          }"
+          @page-change="onPageChange"
         >
-          <a-option>java</a-option>
-          <a-option>cpp</a-option>
-          <a-option>go</a-option>
-          <a-option>html</a-option>
-        </a-select>
-      </a-form-item>
-      <a-form-item>
-        <a-button type="primary" @click="doSubmit">搜索</a-button>
-      </a-form-item>
-    </a-form>
-    <a-divider />
-    <a-table
-      :ref="tableRef"
-      :columns="columns"
-      :data="dataList"
-      :pagination="{
-        showTotal: true,
-        pageSize: searchParams.pageSize,
-        current: searchParams.current,
-        total,
-      }"
-      @page-change="onPageChange"
-    >
-      <template #judgeInfo="{ record }">
-        {{ JSON.stringify(record.judgeInfo) }}
-      </template>
-      <template #createTime="{ record }">
-        {{ moment(record.createTime).format("YYYY-MM-DD") }}
-      </template>
-    </a-table>
+          <template #judgeInfo="{ record }">
+            {{ JSON.stringify(record.judgeInfo) }}
+          </template>
+          <template #createTime="{ record }">
+            {{ moment(record.createTime).format("YYYY-MM-DD") }}
+          </template>
+        </a-table>
+      </a-card>
+    </div>
   </div>
 </template>
 
@@ -53,7 +74,7 @@ import {
 import message from "@arco-design/web-vue/es/message";
 import { useRouter } from "vue-router";
 import moment from "moment";
-
+import { IconSearch } from "@arco-design/web-vue/es/icon";
 const tableRef = ref();
 
 const dataList = ref([]);
@@ -97,31 +118,31 @@ onMounted(() => {
 
 const columns = [
   {
-    title: "提交号",
+    title: "Submit ID",
     dataIndex: "id",
   },
   {
-    title: "编程语言",
+    title: "Language",
     dataIndex: "language",
   },
   {
-    title: "判题信息",
+    title: "Judge Info",
     slotName: "judgeInfo",
   },
   {
-    title: "判题状态",
+    title: "Status",
     dataIndex: "status",
   },
   {
-    title: "题目 id",
+    title: "Question id",
     dataIndex: "questionId",
   },
   {
-    title: "提交者 id",
+    title: "User ID",
     dataIndex: "userId",
   },
   {
-    title: "创建时间",
+    title: "Create Time",
     slotName: "createTime",
   },
 ];
